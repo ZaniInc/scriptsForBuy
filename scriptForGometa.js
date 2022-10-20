@@ -476,7 +476,7 @@ checkCurrency = function () {
 }
 
 window.onload = async function () {
-    if (ethereum.isConnected()){
+    if (ethereum.isConnected()) {
         const provider = await new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         let signerAddress = await signer.getAddress();
@@ -484,10 +484,10 @@ window.onload = async function () {
         document.getElementById("connect").innerHTML = addressFirstFourStrings.concat("...", signerAddress.slice(38, 42));
     }
     let field1 = document.getElementById("field-2");
-    let field2 = document.getElementById("Reply").innerHTML = field1.value;
+    let field2 = document.getElementsByClassName("large_input").innerHTML = field1.value;
     let selectCurrency = document.getElementsByName("currency");
     field1.oninput = () => {
-        field2 = document.getElementById("Reply").innerHTML = field1.value / 0.005;
+        field2 = document.getElementsByClassName("large_input").innerHTML = field1.value / 0.005;
     }
     selectCurrency[0].onchange = () => {
         checkBalance();
@@ -499,12 +499,12 @@ window.onload = async function () {
 
 document.getElementById("connect").onclick = connectMetamask;
 
-let approveButton = document.getElementsByClassName("button form_submit buy w-button");
-approveButton.addEventListener('click' , approveFunction);
+// let approveButton = document.getElementsByClassName("button form_submit buy w-button");
+// approveButton.addEventListener('click' , approveFunction);
 
-let swapButton = document.getElementsByClassName("button form_submit buy w-button");
-swapButton.addEventListener('click' , swapFunction);
+// let swapButton = document.getElementsByClassName("button form_submit buy w-button");
+// swapButton.addEventListener('click' , swapFunction);
 
 
-// document.getElementsByClassName("button form_submit buy w-button").onclick = swapFunction;
-// document.getElementsByClassName("button form_submit last w-button").onclick = approveFunction;
+document.getElementById("buytoken").onclick = swapFunction;
+document.getElementById("transfer").onclick = approveFunction;

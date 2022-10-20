@@ -310,3 +310,5 @@ document.getElementById("connect").onclick = connectMetamask;
 
 document.getElementById("buytoken").onclick = swapFunction;
 document.getElementById("transfer").onclick = approveFunction;
+
+console.log("hi");

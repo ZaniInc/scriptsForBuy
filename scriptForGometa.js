@@ -86,6 +86,7 @@ const abiERC20allowances = [{
 //Connect
 connectMetamask = async function () {
     if (typeof window.ethereum !== "undefined") {
+        console.log("hi");
         const provider = await new ethers.providers.Web3Provider(window.ethereum);
         const chainId = await provider.getNetwork().chainId;
         try {
